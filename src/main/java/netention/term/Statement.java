@@ -1,4 +1,4 @@
-package netention;
+package netention.term;
 
 abstract public class Statement {
 

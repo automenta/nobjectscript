@@ -1,5 +1,9 @@
-package netention;
+package netention.io;
 
+import netention.term.Atom;
+import netention.NObject;
+import netention.term.Statement;
+import netention.term.Term;
 import netention.parser.nobjectscriptLexer;
 import netention.parser.nobjectscriptListener;
 import netention.parser.nobjectscriptParser;
@@ -9,9 +13,7 @@ import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.*;
 
 import java.util.ArrayDeque;
-import java.util.ArrayList;
 import java.util.Deque;
-import java.util.List;
 
 public class NObjectParser implements nobjectscriptListener {
 

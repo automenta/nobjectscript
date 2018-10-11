@@ -1,4 +1,4 @@
-package netention;
+package netention.term;
 
 public class Atom extends Term {
 

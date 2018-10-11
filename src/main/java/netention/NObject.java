@@ -1,5 +1,8 @@
 package netention;
 
+import netention.term.Statement;
+import netention.term.Term;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;

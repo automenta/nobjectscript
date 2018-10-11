@@ -1,5 +1,6 @@
 package netention;
 
+import netention.io.NObjectParser;
 import org.junit.jupiter.api.Test;
 
 public class NObjectParserTest {

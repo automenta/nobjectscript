@@ -4,12 +4,14 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
 
-/** knowledgebase: collection of nobjects and supporting knowledge/ontologies */
+/** 1st-person collection of nobjects */
 public class Experience {
 
+    public final UUID id;
     public final Map<UUID,NObject> obj = new ConcurrentHashMap<>();
 
-    /** alias map */
-    public final Map<Atom,?> alias = new ConcurrentHashMap<>();
+    public Experience(UUID id) {
+        this.id = id;
+    }
 
 }
