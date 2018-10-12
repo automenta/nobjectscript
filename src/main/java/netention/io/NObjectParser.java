@@ -1,14 +1,9 @@
 package netention.io;
 
-import netention.term.Atom;
+import netention.term.*;
 import netention.NObject;
-import netention.term.Statement;
-import netention.term.Term;
-import netention.parser.nobjectscriptLexer;
 import netention.parser.nobjectscriptListener;
 import netention.parser.nobjectscriptParser;
-import org.antlr.v4.runtime.CharStreams;
-import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
 import org.antlr.v4.runtime.tree.*;
 
@@ -18,10 +13,10 @@ import java.util.Deque;
 public class NObjectParser implements nobjectscriptListener {
 
     final NObject root = new NObject();
-    NObject nobj = root; //current context
+    public NObject nobj = root; //current context
 
-    final Deque<NObject> nobjStack = new ArrayDeque(0);
-    final Deque<Term> termStack = /*new ArrayDeque() {
+    public final Deque<NObject> nobjStack = new ArrayDeque(0);
+    public final Deque<Term> termStack = /*new ArrayDeque() {
         @Override
         public void push(Object o) {
             System.out.println("push: " + o);
@@ -34,23 +29,6 @@ public class NObjectParser implements nobjectscriptListener {
             return super.pop();
         }
     };*/ new ArrayDeque();
-
-    public static NObject parse(String input) {
-        nobjectscriptLexer lexer = new nobjectscriptLexer(CharStreams.fromString(input));
-        nobjectscriptParser parser = new nobjectscriptParser(new CommonTokenStream(lexer));
-
-        NObjectParser pp = new NObjectParser();
-        parser.addParseListener(pp);
-
-        parser.nobject();
-
-        if (!pp.termStack.isEmpty())
-            throw new RuntimeException("termStack not clear: " + pp.termStack);
-        if (!pp.nobjStack.isEmpty())
-            throw new RuntimeException("nobjStack not clear: " + pp.nobjStack);
-
-        return pp.nobj;
-    }
 
     @Override
     public void enterNobject(nobjectscriptParser.NobjectContext ctx) {
@@ -95,11 +73,19 @@ public class NObjectParser implements nobjectscriptListener {
 
     @Override
     public void exitStatement(nobjectscriptParser.StatementContext ctx) {
-        nobjectscriptParser.PuncContext punc = ctx.punc();
+        if (termStack.isEmpty())
+            return; //HACK ??
 
-        Term subj = termStack.pop();
+        nobjectscriptParser.PuncContext punc = ctx.punc();
+        byte p = (byte) punc.getText().charAt(0);
         Term pred = termStack.pop();
-        nobj.stmt.add(Statement.the(subj, pred, (byte) punc.getText().charAt(0)));
+        Term subj = termStack.pop();
+        (p == '.' ? nobj.belief : nobj.goal).compute(subj, (key,prev)->{
+            if (prev==null)
+                return Statement.the(subj, pred, p);
+            else
+                return Statement.the(subj, And.the( pred, prev.predicate ), p);
+        });
     }
 
     @Override
@@ -191,7 +177,7 @@ public class NObjectParser implements nobjectscriptListener {
 
     @Override
     public void exitInteger_term(nobjectscriptParser.Integer_termContext ctx) {
-        termStack.push(new Atom(ctx.getText())); //HACK
+        termStack.push(new Num.Int(Integer.parseInt(ctx.getText()))); //HACK
 
     }
 

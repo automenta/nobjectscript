@@ -20,6 +20,6 @@ public class Atom extends Term {
 
     @Override
     public boolean equals(Object obj) {
-        return obj instanceof Atom && id.equals(((Atom)obj).id);
+        return this==obj || (obj instanceof Atom && id.equals(((Atom)obj).id));
     }
 }

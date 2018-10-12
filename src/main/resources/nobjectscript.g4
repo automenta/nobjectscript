@@ -42,15 +42,15 @@ grammar nobjectscript;
 
 // Prolog text and data formed from terms (6.2)
 
-nobject: (statement | metastatement) * EOF ;
-anonynobject: '{' (statement | metastatement) * '}' ;
+nobject: (statement | metastatement )* EOF ;
+anonynobject: '{' WC* (statement | metastatement )+ WC* '}' ;
 
 //implicitly the property refers to the nobject itself, ie. useful for typing
-metastatement: predicate punc ; // also 3.58
+metastatement: predicate WC* punc WC*; // also 3.58
 
 //TODO statement without punc until EOL, assumes '.'
 
-statement: subject ':' predicate punc ; // also 3.58
+statement: subject WC* ':' WC* predicate WC* punc WC*; // also 3.58
 
 subject: term ;
 predicate: term | anonynobject ;
@@ -189,9 +189,10 @@ fragment HEX_DIGIT: [0-9a-fA-F] ;
 // 6.5.3
 //fragment SOLO: [!(),;[{}|%] | ']' ;
 
+WC : [ \t\r\n] ;
 
 WS
-   : [ \t\r\n]+ -> skip
+   : WC+ -> skip
    ;
 
 COMMENT: '//' ~[\n\r]* ( [\n\r] | EOF) -> channel(HIDDEN) ;
