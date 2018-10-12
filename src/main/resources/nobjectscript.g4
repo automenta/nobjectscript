@@ -66,15 +66,24 @@ punc: '.' | '!' ;
 //    : term ( ',' term )*
 //    ;
 
+term_only : term EOF ;
+
 term
     //: VARIABLE          # variable
     : '(' term ')'      # braced_term
-    | '-'? integer      # integer_term //TODO: negative case should be covered by unary_operator
-    | '-'? FLOAT        # float
+
+    | neg_integer      # neg_integer_term //TODO: negative case should be covered by unary_operator
+    | '-' FLOAT        # neg_float
+
+    | integer      # integer_term //TODO: negative case should be covered by unary_operator
+    | FLOAT        # float
+
+    //| '-'? integer      # integer_term //TODO: negative case should be covered by unary_operator
+    //| '-'? FLOAT        # float
     // structure / compound term
     //| atom '(' termlist ')'     # compound_term
-    |<assoc=right> term operator term        # binary_operator
-    | operator term             # unary_operator
+    |<assoc=right> term WC* operator WC* term        # binary_operator
+    |operator WC* term             # unary_operator
     //| '[' termlist ( '|' term )? ']' # list_term
     //| '{' termlist '}'          # curly_bracketed_term
 
@@ -95,9 +104,9 @@ operator
     | '=' | '\\='
     | '==' | '\\==' | '@<' | '@=<' | '@>' | '@>='
     | '=..'
-    | 'is' | '=:=' | '=\\=' | '<' | '=<' | '>' | '>='
+    | 'is' | '=:=' | '=\\=' | '<' | '<=' | '>' | '>='
     | ':' // modules: 5.2.1
-    | '+' | '-' | '/\\' | '\\/'
+    | '+' /*| '-' */| '/\\' | '\\/'
     | '*' | '/' | '//' | 'rem' | 'mod' | '<<' | '>>' //TODO: '/' cannot be used as atom because token here not in GRAPHIC. only works because , is operator too. example: swipl/filesex.pl:177
     | '**'
     | '^'
@@ -106,16 +115,17 @@ operator
 
 atom // 6.4.2 and 6.1.2
     //: '[' ']'           # empty_list //NOTE [] is not atom anymore in swipl 7 and later
-    : '{' '}'           # empty_braces
-    | LETTER_DIGIT      # name
-    | GRAPHIC_TOKEN     # graphic
+    //: '{' '}'           # empty_braces
+    : LETTER_DIGIT      # name
+    //| GRAPHIC_TOKEN     # graphic
     | QUOTED            # quoted_string
     //| DOUBLE_QUOTED_LIST# dq_string
     //| BACK_QUOTED_STRING# backq_string
-    | ';'               # semicolon
+    //| ';'               # semicolon
     //| '!'               # cut
     ;
 
+neg_integer : '-' integer ;
 
 integer // 6.4.4
     : DECIMAL

@@ -1,5 +1,5 @@
 package netention.term;
 
-/** boolean predicate condition */
-public class Condition {
+/** marker class for Condition terms */
+public interface Condition {
 }

@@ -3,6 +3,8 @@ package netention;
 import netention.io.ExperienceFiles;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Path;
 import java.util.UUID;
 
 /** main entry point
@@ -15,10 +17,10 @@ public class Realize extends Reality {
     /** my experience */
     private final Experience me;
 
-    public Realize(UUID me, File path) {
+    public Realize(UUID me, Path path) throws IOException {
         super();
         this.me = experience.computeIfAbsent(me, Experience::new);
-        this.myFiles = new ExperienceFiles(path, me);
+        this.myFiles = new ExperienceFiles(this.me, path);
 
         //TODO connect to network locations, implied/specified by any which are found in the experience once loaded
         //if none found, suggest some as Notices

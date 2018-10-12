@@ -7,7 +7,10 @@ import java.util.concurrent.ConcurrentHashMap;
 /** 1st-person collection of nobjects */
 public class Experience {
 
+    /** who */
     public final UUID id;
+
+    /** what */
     public final Map<UUID,NObject> obj = new ConcurrentHashMap<>();
 
     public Experience(UUID id) {

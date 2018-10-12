@@ -40,19 +40,7 @@ public class NObject extends Term {
     }
 
     public static NObject parse(CharStream input) {
-        nobjectscriptParser parser = new nobjectscriptParser(new CommonTokenStream(new nobjectscriptLexer(input)));
-
-        NObjectParser pp = new NObjectParser();
-        parser.addParseListener(pp);
-
-        parser.nobject();
-
-        if (!pp.termStack.isEmpty())
-            throw new RuntimeException("termStack not clear: " + pp.termStack);
-        if (!pp.nobjStack.isEmpty())
-            throw new RuntimeException("nobjStack not clear: " + pp.nobjStack);
-
-        return pp.nobj;
+        return new NObjectParser(new NObject()).nobject(input);
     }
 
     @Override

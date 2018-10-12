@@ -2,11 +2,14 @@ package netention;
 
 import netention.match.Diff;
 import netention.match.ValueDiff;
+import netention.term.Atom;
+import netention.term.Num;
+import netention.term.Term;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
-class NObjectParserTest {
+class ParseNObjectTest {
 
     @Test
     void testParseFlat() {
@@ -37,32 +40,4 @@ class NObjectParserTest {
     }
 
 
-    @Test void testMatch() {
-        NObject a = NObject.parse(
-                "x: 1."
-        );
-        NObject b = NObject.parse(
-                "x: 1."
-        );
-
-        NObject c = NObject.parse(
-                "x: 2."
-        );
-
-        System.out.println(Diff.the(a, b));
-        System.out.println(Diff.the(a, c));
-
-        NObject d1 = NObject.parse(
-                "x: >1."
-        );
-        NObject d2 = NObject.parse(
-                "x: >1!"
-        );
-        NObject e = NObject.parse(
-                "x: <1."
-        );
-        NObject f = NObject.parse(
-                "x: <1!"
-        );
-    }
 }

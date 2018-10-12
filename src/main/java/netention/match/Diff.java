@@ -1,6 +1,7 @@
 package netention.match;
 
 import netention.NObject;
+import netention.term.Condition;
 import netention.term.Statement;
 import netention.term.Term;
 
@@ -60,7 +61,14 @@ public class Diff {
      * @param y predicate from y's statement
      */
     private void diff(Term subject, Term x, Term y) {
-        diff.put(subject, new StatementDiff(subject, x, y, x.diff(y)));
+        ValueDiff xy;
+
+        if (y instanceof Condition && !(x instanceof Condition))
+            xy = y.diff(x); //reverse
+        else
+            xy = x.diff(y);
+
+        this.diff.put(subject, new StatementDiff(subject, x, y, xy));
     }
 
     @Override

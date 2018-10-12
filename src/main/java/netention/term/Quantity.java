@@ -1,6 +1,6 @@
 package netention.term;
 
-/** non-scalar quantity, typed with a measurement unit
+/** scalar quantity, typed with a measurement unit
  * TODO integrate with UOM library
  * */
 public class Quantity extends Term {

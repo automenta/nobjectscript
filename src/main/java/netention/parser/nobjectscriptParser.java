@@ -22,30 +22,30 @@ public class nobjectscriptParser extends Parser {
 		T__17=18, T__18=19, T__19=20, T__20=21, T__21=22, T__22=23, T__23=24, 
 		T__24=25, T__25=26, T__26=27, T__27=28, T__28=29, T__29=30, T__30=31, 
 		T__31=32, T__32=33, T__33=34, T__34=35, T__35=36, T__36=37, T__37=38, 
-		T__38=39, T__39=40, LETTER_DIGIT=41, DECIMAL=42, BINARY=43, OCTAL=44, 
-		HEX=45, CHARACTER_CODE_CONSTANT=46, FLOAT=47, GRAPHIC_TOKEN=48, QUOTED=49, 
-		WC=50, WS=51, COMMENT=52, MULTILINE_COMMENT=53;
+		T__38=39, LETTER_DIGIT=40, DECIMAL=41, BINARY=42, OCTAL=43, HEX=44, CHARACTER_CODE_CONSTANT=45, 
+		FLOAT=46, GRAPHIC_TOKEN=47, QUOTED=48, WC=49, WS=50, COMMENT=51, MULTILINE_COMMENT=52;
 	public static final int
 		RULE_nobject = 0, RULE_anonynobject = 1, RULE_metastatement = 2, RULE_statement = 3, 
-		RULE_subject = 4, RULE_predicate = 5, RULE_punc = 6, RULE_term = 7, RULE_operator = 8, 
-		RULE_atom = 9, RULE_integer = 10;
+		RULE_subject = 4, RULE_predicate = 5, RULE_punc = 6, RULE_term_only = 7, 
+		RULE_term = 8, RULE_operator = 9, RULE_atom = 10, RULE_neg_integer = 11, 
+		RULE_integer = 12;
 	public static final String[] ruleNames = {
 		"nobject", "anonynobject", "metastatement", "statement", "subject", "predicate", 
-		"punc", "term", "operator", "atom", "integer"
+		"punc", "term_only", "term", "operator", "atom", "neg_integer", "integer"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
 		null, "'{'", "'}'", "':'", "'.'", "'!'", "'('", "')'", "'-'", "','", "'\\+'", 
 		"'='", "'\\='", "'=='", "'\\=='", "'@<'", "'@=<'", "'@>'", "'@>='", "'=..'", 
-		"'is'", "'=:='", "'=\\='", "'<'", "'=<'", "'>'", "'>='", "'+'", "'/\\'", 
+		"'is'", "'=:='", "'=\\='", "'<'", "'<='", "'>'", "'>='", "'+'", "'/\\'", 
 		"'\\/'", "'*'", "'/'", "'//'", "'rem'", "'mod'", "'<<'", "'>>'", "'**'", 
-		"'^'", "'\\'", "';'"
+		"'^'", "'\\'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, null, null, null, null, null, null, null, null, null, null, null, 
 		null, null, null, null, null, null, null, null, null, null, null, null, 
 		null, null, null, null, null, null, null, null, null, null, null, null, 
-		null, null, null, null, null, "LETTER_DIGIT", "DECIMAL", "BINARY", "OCTAL", 
+		null, null, null, null, "LETTER_DIGIT", "DECIMAL", "BINARY", "OCTAL", 
 		"HEX", "CHARACTER_CODE_CONSTANT", "FLOAT", "GRAPHIC_TOKEN", "QUOTED", 
 		"WC", "WS", "COMMENT", "MULTILINE_COMMENT"
 	};
@@ -138,33 +138,33 @@ public class nobjectscriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(26);
+			setState(30);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
-			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__2) | (1L << T__5) | (1L << T__7) | (1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << T__11) | (1L << T__12) | (1L << T__13) | (1L << T__14) | (1L << T__15) | (1L << T__16) | (1L << T__17) | (1L << T__18) | (1L << T__19) | (1L << T__20) | (1L << T__21) | (1L << T__22) | (1L << T__23) | (1L << T__24) | (1L << T__25) | (1L << T__26) | (1L << T__27) | (1L << T__28) | (1L << T__29) | (1L << T__30) | (1L << T__31) | (1L << T__32) | (1L << T__33) | (1L << T__34) | (1L << T__35) | (1L << T__36) | (1L << T__37) | (1L << T__38) | (1L << T__39) | (1L << LETTER_DIGIT) | (1L << DECIMAL) | (1L << BINARY) | (1L << OCTAL) | (1L << HEX) | (1L << CHARACTER_CODE_CONSTANT) | (1L << FLOAT) | (1L << GRAPHIC_TOKEN) | (1L << QUOTED))) != 0)) {
+			while ((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__2) | (1L << T__5) | (1L << T__7) | (1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << T__11) | (1L << T__12) | (1L << T__13) | (1L << T__14) | (1L << T__15) | (1L << T__16) | (1L << T__17) | (1L << T__18) | (1L << T__19) | (1L << T__20) | (1L << T__21) | (1L << T__22) | (1L << T__23) | (1L << T__24) | (1L << T__25) | (1L << T__26) | (1L << T__27) | (1L << T__28) | (1L << T__29) | (1L << T__30) | (1L << T__31) | (1L << T__32) | (1L << T__33) | (1L << T__34) | (1L << T__35) | (1L << T__36) | (1L << T__37) | (1L << T__38) | (1L << LETTER_DIGIT) | (1L << DECIMAL) | (1L << BINARY) | (1L << OCTAL) | (1L << HEX) | (1L << CHARACTER_CODE_CONSTANT) | (1L << FLOAT) | (1L << QUOTED))) != 0)) {
 				{
-				setState(24);
+				setState(28);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,0,_ctx) ) {
 				case 1:
 					{
-					setState(22);
+					setState(26);
 					statement();
 					}
 					break;
 				case 2:
 					{
-					setState(23);
+					setState(27);
 					metastatement();
 					}
 					break;
 				}
 				}
-				setState(28);
+				setState(32);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(29);
+			setState(33);
 			match(EOF);
 			}
 		}
@@ -222,63 +222,63 @@ public class nobjectscriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(31);
-			match(T__0);
 			setState(35);
+			match(T__0);
+			setState(39);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==WC) {
 				{
 				{
-				setState(32);
+				setState(36);
 				match(WC);
 				}
 				}
-				setState(37);
+				setState(41);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(40); 
+			setState(44); 
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			do {
 				{
-				setState(40);
+				setState(44);
 				_errHandler.sync(this);
 				switch ( getInterpreter().adaptivePredict(_input,3,_ctx) ) {
 				case 1:
 					{
-					setState(38);
+					setState(42);
 					statement();
 					}
 					break;
 				case 2:
 					{
-					setState(39);
+					setState(43);
 					metastatement();
 					}
 					break;
 				}
 				}
-				setState(42); 
+				setState(46); 
 				_errHandler.sync(this);
 				_la = _input.LA(1);
-			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__2) | (1L << T__5) | (1L << T__7) | (1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << T__11) | (1L << T__12) | (1L << T__13) | (1L << T__14) | (1L << T__15) | (1L << T__16) | (1L << T__17) | (1L << T__18) | (1L << T__19) | (1L << T__20) | (1L << T__21) | (1L << T__22) | (1L << T__23) | (1L << T__24) | (1L << T__25) | (1L << T__26) | (1L << T__27) | (1L << T__28) | (1L << T__29) | (1L << T__30) | (1L << T__31) | (1L << T__32) | (1L << T__33) | (1L << T__34) | (1L << T__35) | (1L << T__36) | (1L << T__37) | (1L << T__38) | (1L << T__39) | (1L << LETTER_DIGIT) | (1L << DECIMAL) | (1L << BINARY) | (1L << OCTAL) | (1L << HEX) | (1L << CHARACTER_CODE_CONSTANT) | (1L << FLOAT) | (1L << GRAPHIC_TOKEN) | (1L << QUOTED))) != 0) );
-			setState(47);
+			} while ( (((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__2) | (1L << T__5) | (1L << T__7) | (1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << T__11) | (1L << T__12) | (1L << T__13) | (1L << T__14) | (1L << T__15) | (1L << T__16) | (1L << T__17) | (1L << T__18) | (1L << T__19) | (1L << T__20) | (1L << T__21) | (1L << T__22) | (1L << T__23) | (1L << T__24) | (1L << T__25) | (1L << T__26) | (1L << T__27) | (1L << T__28) | (1L << T__29) | (1L << T__30) | (1L << T__31) | (1L << T__32) | (1L << T__33) | (1L << T__34) | (1L << T__35) | (1L << T__36) | (1L << T__37) | (1L << T__38) | (1L << LETTER_DIGIT) | (1L << DECIMAL) | (1L << BINARY) | (1L << OCTAL) | (1L << HEX) | (1L << CHARACTER_CODE_CONSTANT) | (1L << FLOAT) | (1L << QUOTED))) != 0) );
+			setState(51);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==WC) {
 				{
 				{
-				setState(44);
+				setState(48);
 				match(WC);
 				}
 				}
-				setState(49);
+				setState(53);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(50);
+			setState(54);
 			match(T__1);
 			}
 		}
@@ -331,37 +331,37 @@ public class nobjectscriptParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(52);
-			predicate();
 			setState(56);
+			predicate();
+			setState(60);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==WC) {
 				{
 				{
-				setState(53);
+				setState(57);
 				match(WC);
 				}
 				}
-				setState(58);
+				setState(62);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(59);
-			punc();
 			setState(63);
+			punc();
+			setState(67);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(60);
+					setState(64);
 					match(WC);
 					}
 					} 
 				}
-				setState(65);
+				setState(69);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,7,_ctx);
 			}
@@ -419,69 +419,69 @@ public class nobjectscriptParser extends Parser {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(66);
-			subject();
 			setState(70);
+			subject();
+			setState(74);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==WC) {
 				{
 				{
-				setState(67);
+				setState(71);
 				match(WC);
 				}
 				}
-				setState(72);
+				setState(76);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(73);
-			match(T__2);
 			setState(77);
+			match(T__2);
+			setState(81);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==WC) {
 				{
 				{
-				setState(74);
+				setState(78);
 				match(WC);
 				}
 				}
-				setState(79);
+				setState(83);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(80);
-			predicate();
 			setState(84);
+			predicate();
+			setState(88);
 			_errHandler.sync(this);
 			_la = _input.LA(1);
 			while (_la==WC) {
 				{
 				{
-				setState(81);
+				setState(85);
 				match(WC);
 				}
 				}
-				setState(86);
+				setState(90);
 				_errHandler.sync(this);
 				_la = _input.LA(1);
 			}
-			setState(87);
-			punc();
 			setState(91);
+			punc();
+			setState(95);
 			_errHandler.sync(this);
 			_alt = getInterpreter().adaptivePredict(_input,11,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					{
 					{
-					setState(88);
+					setState(92);
 					match(WC);
 					}
 					} 
 				}
-				setState(93);
+				setState(97);
 				_errHandler.sync(this);
 				_alt = getInterpreter().adaptivePredict(_input,11,_ctx);
 			}
@@ -527,7 +527,7 @@ public class nobjectscriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(94);
+			setState(98);
 			term(0);
 			}
 		}
@@ -572,23 +572,66 @@ public class nobjectscriptParser extends Parser {
 		PredicateContext _localctx = new PredicateContext(_ctx, getState());
 		enterRule(_localctx, 10, RULE_predicate);
 		try {
-			setState(98);
+			setState(102);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,12,_ctx) ) {
-			case 1:
+			switch (_input.LA(1)) {
+			case T__2:
+			case T__5:
+			case T__7:
+			case T__8:
+			case T__9:
+			case T__10:
+			case T__11:
+			case T__12:
+			case T__13:
+			case T__14:
+			case T__15:
+			case T__16:
+			case T__17:
+			case T__18:
+			case T__19:
+			case T__20:
+			case T__21:
+			case T__22:
+			case T__23:
+			case T__24:
+			case T__25:
+			case T__26:
+			case T__27:
+			case T__28:
+			case T__29:
+			case T__30:
+			case T__31:
+			case T__32:
+			case T__33:
+			case T__34:
+			case T__35:
+			case T__36:
+			case T__37:
+			case T__38:
+			case LETTER_DIGIT:
+			case DECIMAL:
+			case BINARY:
+			case OCTAL:
+			case HEX:
+			case CHARACTER_CODE_CONSTANT:
+			case FLOAT:
+			case QUOTED:
 				enterOuterAlt(_localctx, 1);
 				{
-				setState(96);
+				setState(100);
 				term(0);
 				}
 				break;
-			case 2:
+			case T__0:
 				enterOuterAlt(_localctx, 2);
 				{
-				setState(97);
+				setState(101);
 				anonynobject();
 				}
 				break;
+			default:
+				throw new NoViableAltException(this);
 			}
 		}
 		catch (RecognitionException re) {
@@ -629,7 +672,7 @@ public class nobjectscriptParser extends Parser {
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(100);
+			setState(104);
 			_la = _input.LA(1);
 			if ( !(_la==T__3 || _la==T__4) ) {
 			_errHandler.recoverInline(this);
@@ -652,6 +695,53 @@ public class nobjectscriptParser extends Parser {
 		return _localctx;
 	}
 
+	public static class Term_onlyContext extends ParserRuleContext {
+		public TermContext term() {
+			return getRuleContext(TermContext.class,0);
+		}
+		public TerminalNode EOF() { return getToken(nobjectscriptParser.EOF, 0); }
+		public Term_onlyContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_term_only; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof nobjectscriptListener ) ((nobjectscriptListener)listener).enterTerm_only(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof nobjectscriptListener ) ((nobjectscriptListener)listener).exitTerm_only(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof nobjectscriptVisitor ) return ((nobjectscriptVisitor<? extends T>)visitor).visitTerm_only(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final Term_onlyContext term_only() throws RecognitionException {
+		Term_onlyContext _localctx = new Term_onlyContext(_ctx, getState());
+		enterRule(_localctx, 14, RULE_term_only);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(106);
+			term(0);
+			setState(107);
+			match(EOF);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
 	public static class TermContext extends ParserRuleContext {
 		public TermContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -661,6 +751,23 @@ public class nobjectscriptParser extends Parser {
 		public TermContext() { }
 		public void copyFrom(TermContext ctx) {
 			super.copyFrom(ctx);
+		}
+	}
+	public static class Neg_floatContext extends TermContext {
+		public TerminalNode FLOAT() { return getToken(nobjectscriptParser.FLOAT, 0); }
+		public Neg_floatContext(TermContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof nobjectscriptListener ) ((nobjectscriptListener)listener).enterNeg_float(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof nobjectscriptListener ) ((nobjectscriptListener)listener).exitNeg_float(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof nobjectscriptVisitor ) return ((nobjectscriptVisitor<? extends T>)visitor).visitNeg_float(this);
+			else return visitor.visitChildren(this);
 		}
 	}
 	public static class Atom_termContext extends TermContext {
@@ -692,6 +799,10 @@ public class nobjectscriptParser extends Parser {
 		public OperatorContext operator() {
 			return getRuleContext(OperatorContext.class,0);
 		}
+		public List<TerminalNode> WC() { return getTokens(nobjectscriptParser.WC); }
+		public TerminalNode WC(int i) {
+			return getToken(nobjectscriptParser.WC, i);
+		}
 		public Binary_operatorContext(TermContext ctx) { copyFrom(ctx); }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
@@ -713,6 +824,10 @@ public class nobjectscriptParser extends Parser {
 		}
 		public TermContext term() {
 			return getRuleContext(TermContext.class,0);
+		}
+		public List<TerminalNode> WC() { return getTokens(nobjectscriptParser.WC); }
+		public TerminalNode WC(int i) {
+			return getToken(nobjectscriptParser.WC, i);
 		}
 		public Unary_operatorContext(TermContext ctx) { copyFrom(ctx); }
 		@Override
@@ -745,6 +860,25 @@ public class nobjectscriptParser extends Parser {
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
 			if ( visitor instanceof nobjectscriptVisitor ) return ((nobjectscriptVisitor<? extends T>)visitor).visitBraced_term(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+	public static class Neg_integer_termContext extends TermContext {
+		public Neg_integerContext neg_integer() {
+			return getRuleContext(Neg_integerContext.class,0);
+		}
+		public Neg_integer_termContext(TermContext ctx) { copyFrom(ctx); }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof nobjectscriptListener ) ((nobjectscriptListener)listener).enterNeg_integer_term(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof nobjectscriptListener ) ((nobjectscriptListener)listener).exitNeg_integer_term(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof nobjectscriptVisitor ) return ((nobjectscriptVisitor<? extends T>)visitor).visitNeg_integer_term(this);
 			else return visitor.visitChildren(this);
 		}
 	}
@@ -794,93 +928,107 @@ public class nobjectscriptParser extends Parser {
 		int _parentState = getState();
 		TermContext _localctx = new TermContext(_ctx, _parentState);
 		TermContext _prevctx = _localctx;
-		int _startState = 14;
-		enterRecursionRule(_localctx, 14, RULE_term, _p);
+		int _startState = 16;
+		enterRecursionRule(_localctx, 16, RULE_term, _p);
 		int _la;
 		try {
 			int _alt;
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(119);
+			setState(129);
 			_errHandler.sync(this);
-			switch ( getInterpreter().adaptivePredict(_input,15,_ctx) ) {
+			switch ( getInterpreter().adaptivePredict(_input,14,_ctx) ) {
 			case 1:
 				{
 				_localctx = new Braced_termContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 
-				setState(103);
+				setState(110);
 				match(T__5);
-				setState(104);
+				setState(111);
 				term(0);
-				setState(105);
+				setState(112);
 				match(T__6);
 				}
 				break;
 			case 2:
 				{
-				_localctx = new Integer_termContext(_localctx);
+				_localctx = new Neg_integer_termContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(108);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==T__7) {
-					{
-					setState(107);
-					match(T__7);
-					}
-				}
-
-				setState(110);
-				integer();
+				setState(114);
+				neg_integer();
 				}
 				break;
 			case 3:
 				{
-				_localctx = new FloatContext(_localctx);
+				_localctx = new Neg_floatContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(112);
-				_errHandler.sync(this);
-				_la = _input.LA(1);
-				if (_la==T__7) {
-					{
-					setState(111);
-					match(T__7);
-					}
-				}
-
-				setState(114);
+				setState(115);
+				match(T__7);
+				setState(116);
 				match(FLOAT);
 				}
 				break;
 			case 4:
 				{
-				_localctx = new Unary_operatorContext(_localctx);
+				_localctx = new Integer_termContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
-				setState(115);
-				operator();
-				setState(116);
-				term(2);
+				setState(117);
+				integer();
 				}
 				break;
 			case 5:
 				{
-				_localctx = new Atom_termContext(_localctx);
+				_localctx = new FloatContext(_localctx);
 				_ctx = _localctx;
 				_prevctx = _localctx;
 				setState(118);
+				match(FLOAT);
+				}
+				break;
+			case 6:
+				{
+				_localctx = new Unary_operatorContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(119);
+				operator();
+				setState(123);
+				_errHandler.sync(this);
+				_la = _input.LA(1);
+				while (_la==WC) {
+					{
+					{
+					setState(120);
+					match(WC);
+					}
+					}
+					setState(125);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+				}
+				setState(126);
+				term(2);
+				}
+				break;
+			case 7:
+				{
+				_localctx = new Atom_termContext(_localctx);
+				_ctx = _localctx;
+				_prevctx = _localctx;
+				setState(128);
 				atom();
 				}
 				break;
 			}
 			_ctx.stop = _input.LT(-1);
-			setState(127);
+			setState(149);
 			_errHandler.sync(this);
-			_alt = getInterpreter().adaptivePredict(_input,16,_ctx);
+			_alt = getInterpreter().adaptivePredict(_input,17,_ctx);
 			while ( _alt!=2 && _alt!=org.antlr.v4.runtime.atn.ATN.INVALID_ALT_NUMBER ) {
 				if ( _alt==1 ) {
 					if ( _parseListeners!=null ) triggerExitRuleEvent();
@@ -889,18 +1037,46 @@ public class nobjectscriptParser extends Parser {
 					{
 					_localctx = new Binary_operatorContext(new TermContext(_parentctx, _parentState));
 					pushNewRecursionContext(_localctx, _startState, RULE_term);
-					setState(121);
+					setState(131);
 					if (!(precpred(_ctx, 3))) throw new FailedPredicateException(this, "precpred(_ctx, 3)");
-					setState(122);
+					setState(135);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+					while (_la==WC) {
+						{
+						{
+						setState(132);
+						match(WC);
+						}
+						}
+						setState(137);
+						_errHandler.sync(this);
+						_la = _input.LA(1);
+					}
+					setState(138);
 					operator();
-					setState(123);
+					setState(142);
+					_errHandler.sync(this);
+					_la = _input.LA(1);
+					while (_la==WC) {
+						{
+						{
+						setState(139);
+						match(WC);
+						}
+						}
+						setState(144);
+						_errHandler.sync(this);
+						_la = _input.LA(1);
+					}
+					setState(145);
 					term(3);
 					}
 					} 
 				}
-				setState(129);
+				setState(151);
 				_errHandler.sync(this);
-				_alt = getInterpreter().adaptivePredict(_input,16,_ctx);
+				_alt = getInterpreter().adaptivePredict(_input,17,_ctx);
 			}
 			}
 		}
@@ -937,14 +1113,14 @@ public class nobjectscriptParser extends Parser {
 
 	public final OperatorContext operator() throws RecognitionException {
 		OperatorContext _localctx = new OperatorContext(_ctx, getState());
-		enterRule(_localctx, 16, RULE_operator);
+		enterRule(_localctx, 18, RULE_operator);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(130);
+			setState(152);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__7) | (1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << T__11) | (1L << T__12) | (1L << T__13) | (1L << T__14) | (1L << T__15) | (1L << T__16) | (1L << T__17) | (1L << T__18) | (1L << T__19) | (1L << T__20) | (1L << T__21) | (1L << T__22) | (1L << T__23) | (1L << T__24) | (1L << T__25) | (1L << T__26) | (1L << T__27) | (1L << T__28) | (1L << T__29) | (1L << T__30) | (1L << T__31) | (1L << T__32) | (1L << T__33) | (1L << T__34) | (1L << T__35) | (1L << T__36) | (1L << T__37) | (1L << T__38))) != 0)) ) {
+			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__2) | (1L << T__8) | (1L << T__9) | (1L << T__10) | (1L << T__11) | (1L << T__12) | (1L << T__13) | (1L << T__14) | (1L << T__15) | (1L << T__16) | (1L << T__17) | (1L << T__18) | (1L << T__19) | (1L << T__20) | (1L << T__21) | (1L << T__22) | (1L << T__23) | (1L << T__24) | (1L << T__25) | (1L << T__26) | (1L << T__27) | (1L << T__28) | (1L << T__29) | (1L << T__30) | (1L << T__31) | (1L << T__32) | (1L << T__33) | (1L << T__34) | (1L << T__35) | (1L << T__36) | (1L << T__37) | (1L << T__38))) != 0)) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -974,22 +1150,6 @@ public class nobjectscriptParser extends Parser {
 		public AtomContext() { }
 		public void copyFrom(AtomContext ctx) {
 			super.copyFrom(ctx);
-		}
-	}
-	public static class Empty_bracesContext extends AtomContext {
-		public Empty_bracesContext(AtomContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof nobjectscriptListener ) ((nobjectscriptListener)listener).enterEmpty_braces(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof nobjectscriptListener ) ((nobjectscriptListener)listener).exitEmpty_braces(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof nobjectscriptVisitor ) return ((nobjectscriptVisitor<? extends T>)visitor).visitEmpty_braces(this);
-			else return visitor.visitChildren(this);
 		}
 	}
 	public static class NameContext extends AtomContext {
@@ -1026,91 +1186,78 @@ public class nobjectscriptParser extends Parser {
 			else return visitor.visitChildren(this);
 		}
 	}
-	public static class GraphicContext extends AtomContext {
-		public TerminalNode GRAPHIC_TOKEN() { return getToken(nobjectscriptParser.GRAPHIC_TOKEN, 0); }
-		public GraphicContext(AtomContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof nobjectscriptListener ) ((nobjectscriptListener)listener).enterGraphic(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof nobjectscriptListener ) ((nobjectscriptListener)listener).exitGraphic(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof nobjectscriptVisitor ) return ((nobjectscriptVisitor<? extends T>)visitor).visitGraphic(this);
-			else return visitor.visitChildren(this);
-		}
-	}
-	public static class SemicolonContext extends AtomContext {
-		public SemicolonContext(AtomContext ctx) { copyFrom(ctx); }
-		@Override
-		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof nobjectscriptListener ) ((nobjectscriptListener)listener).enterSemicolon(this);
-		}
-		@Override
-		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof nobjectscriptListener ) ((nobjectscriptListener)listener).exitSemicolon(this);
-		}
-		@Override
-		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof nobjectscriptVisitor ) return ((nobjectscriptVisitor<? extends T>)visitor).visitSemicolon(this);
-			else return visitor.visitChildren(this);
-		}
-	}
 
 	public final AtomContext atom() throws RecognitionException {
 		AtomContext _localctx = new AtomContext(_ctx, getState());
-		enterRule(_localctx, 18, RULE_atom);
+		enterRule(_localctx, 20, RULE_atom);
 		try {
-			setState(138);
+			setState(156);
 			_errHandler.sync(this);
 			switch (_input.LA(1)) {
-			case T__0:
-				_localctx = new Empty_bracesContext(_localctx);
-				enterOuterAlt(_localctx, 1);
-				{
-				setState(132);
-				match(T__0);
-				setState(133);
-				match(T__1);
-				}
-				break;
 			case LETTER_DIGIT:
 				_localctx = new NameContext(_localctx);
-				enterOuterAlt(_localctx, 2);
+				enterOuterAlt(_localctx, 1);
 				{
-				setState(134);
+				setState(154);
 				match(LETTER_DIGIT);
-				}
-				break;
-			case GRAPHIC_TOKEN:
-				_localctx = new GraphicContext(_localctx);
-				enterOuterAlt(_localctx, 3);
-				{
-				setState(135);
-				match(GRAPHIC_TOKEN);
 				}
 				break;
 			case QUOTED:
 				_localctx = new Quoted_stringContext(_localctx);
-				enterOuterAlt(_localctx, 4);
+				enterOuterAlt(_localctx, 2);
 				{
-				setState(136);
+				setState(155);
 				match(QUOTED);
-				}
-				break;
-			case T__39:
-				_localctx = new SemicolonContext(_localctx);
-				enterOuterAlt(_localctx, 5);
-				{
-				setState(137);
-				match(T__39);
 				}
 				break;
 			default:
 				throw new NoViableAltException(this);
+			}
+		}
+		catch (RecognitionException re) {
+			_localctx.exception = re;
+			_errHandler.reportError(this, re);
+			_errHandler.recover(this, re);
+		}
+		finally {
+			exitRule();
+		}
+		return _localctx;
+	}
+
+	public static class Neg_integerContext extends ParserRuleContext {
+		public IntegerContext integer() {
+			return getRuleContext(IntegerContext.class,0);
+		}
+		public Neg_integerContext(ParserRuleContext parent, int invokingState) {
+			super(parent, invokingState);
+		}
+		@Override public int getRuleIndex() { return RULE_neg_integer; }
+		@Override
+		public void enterRule(ParseTreeListener listener) {
+			if ( listener instanceof nobjectscriptListener ) ((nobjectscriptListener)listener).enterNeg_integer(this);
+		}
+		@Override
+		public void exitRule(ParseTreeListener listener) {
+			if ( listener instanceof nobjectscriptListener ) ((nobjectscriptListener)listener).exitNeg_integer(this);
+		}
+		@Override
+		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
+			if ( visitor instanceof nobjectscriptVisitor ) return ((nobjectscriptVisitor<? extends T>)visitor).visitNeg_integer(this);
+			else return visitor.visitChildren(this);
+		}
+	}
+
+	public final Neg_integerContext neg_integer() throws RecognitionException {
+		Neg_integerContext _localctx = new Neg_integerContext(_ctx, getState());
+		enterRule(_localctx, 22, RULE_neg_integer);
+		try {
+			enterOuterAlt(_localctx, 1);
+			{
+			setState(158);
+			match(T__7);
+			setState(159);
+			integer();
 			}
 		}
 		catch (RecognitionException re) {
@@ -1151,12 +1298,12 @@ public class nobjectscriptParser extends Parser {
 
 	public final IntegerContext integer() throws RecognitionException {
 		IntegerContext _localctx = new IntegerContext(_ctx, getState());
-		enterRule(_localctx, 20, RULE_integer);
+		enterRule(_localctx, 24, RULE_integer);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
-			setState(140);
+			setState(161);
 			_la = _input.LA(1);
 			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << DECIMAL) | (1L << BINARY) | (1L << OCTAL) | (1L << HEX) | (1L << CHARACTER_CODE_CONSTANT))) != 0)) ) {
 			_errHandler.recoverInline(this);
@@ -1181,7 +1328,7 @@ public class nobjectscriptParser extends Parser {
 
 	public boolean sempred(RuleContext _localctx, int ruleIndex, int predIndex) {
 		switch (ruleIndex) {
-		case 7:
+		case 8:
 			return term_sempred((TermContext)_localctx, predIndex);
 		}
 		return true;
@@ -1195,46 +1342,54 @@ public class nobjectscriptParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\67\u0091\4\2\t\2"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\66\u00a6\4\2\t\2"+
 		"\4\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13"+
-		"\t\13\4\f\t\f\3\2\3\2\7\2\33\n\2\f\2\16\2\36\13\2\3\2\3\2\3\3\3\3\7\3"+
-		"$\n\3\f\3\16\3\'\13\3\3\3\3\3\6\3+\n\3\r\3\16\3,\3\3\7\3\60\n\3\f\3\16"+
-		"\3\63\13\3\3\3\3\3\3\4\3\4\7\49\n\4\f\4\16\4<\13\4\3\4\3\4\7\4@\n\4\f"+
-		"\4\16\4C\13\4\3\5\3\5\7\5G\n\5\f\5\16\5J\13\5\3\5\3\5\7\5N\n\5\f\5\16"+
-		"\5Q\13\5\3\5\3\5\7\5U\n\5\f\5\16\5X\13\5\3\5\3\5\7\5\\\n\5\f\5\16\5_\13"+
-		"\5\3\6\3\6\3\7\3\7\5\7e\n\7\3\b\3\b\3\t\3\t\3\t\3\t\3\t\3\t\5\to\n\t\3"+
-		"\t\3\t\5\ts\n\t\3\t\3\t\3\t\3\t\3\t\5\tz\n\t\3\t\3\t\3\t\3\t\7\t\u0080"+
-		"\n\t\f\t\16\t\u0083\13\t\3\n\3\n\3\13\3\13\3\13\3\13\3\13\3\13\5\13\u008d"+
-		"\n\13\3\f\3\f\3\f\2\3\20\r\2\4\6\b\n\f\16\20\22\24\26\2\5\3\2\6\7\4\2"+
-		"\5\5\n)\3\2,\60\2\u009d\2\34\3\2\2\2\4!\3\2\2\2\6\66\3\2\2\2\bD\3\2\2"+
-		"\2\n`\3\2\2\2\fd\3\2\2\2\16f\3\2\2\2\20y\3\2\2\2\22\u0084\3\2\2\2\24\u008c"+
-		"\3\2\2\2\26\u008e\3\2\2\2\30\33\5\b\5\2\31\33\5\6\4\2\32\30\3\2\2\2\32"+
-		"\31\3\2\2\2\33\36\3\2\2\2\34\32\3\2\2\2\34\35\3\2\2\2\35\37\3\2\2\2\36"+
-		"\34\3\2\2\2\37 \7\2\2\3 \3\3\2\2\2!%\7\3\2\2\"$\7\64\2\2#\"\3\2\2\2$\'"+
-		"\3\2\2\2%#\3\2\2\2%&\3\2\2\2&*\3\2\2\2\'%\3\2\2\2(+\5\b\5\2)+\5\6\4\2"+
-		"*(\3\2\2\2*)\3\2\2\2+,\3\2\2\2,*\3\2\2\2,-\3\2\2\2-\61\3\2\2\2.\60\7\64"+
-		"\2\2/.\3\2\2\2\60\63\3\2\2\2\61/\3\2\2\2\61\62\3\2\2\2\62\64\3\2\2\2\63"+
-		"\61\3\2\2\2\64\65\7\4\2\2\65\5\3\2\2\2\66:\5\f\7\2\679\7\64\2\28\67\3"+
-		"\2\2\29<\3\2\2\2:8\3\2\2\2:;\3\2\2\2;=\3\2\2\2<:\3\2\2\2=A\5\16\b\2>@"+
-		"\7\64\2\2?>\3\2\2\2@C\3\2\2\2A?\3\2\2\2AB\3\2\2\2B\7\3\2\2\2CA\3\2\2\2"+
-		"DH\5\n\6\2EG\7\64\2\2FE\3\2\2\2GJ\3\2\2\2HF\3\2\2\2HI\3\2\2\2IK\3\2\2"+
-		"\2JH\3\2\2\2KO\7\5\2\2LN\7\64\2\2ML\3\2\2\2NQ\3\2\2\2OM\3\2\2\2OP\3\2"+
-		"\2\2PR\3\2\2\2QO\3\2\2\2RV\5\f\7\2SU\7\64\2\2TS\3\2\2\2UX\3\2\2\2VT\3"+
-		"\2\2\2VW\3\2\2\2WY\3\2\2\2XV\3\2\2\2Y]\5\16\b\2Z\\\7\64\2\2[Z\3\2\2\2"+
-		"\\_\3\2\2\2][\3\2\2\2]^\3\2\2\2^\t\3\2\2\2_]\3\2\2\2`a\5\20\t\2a\13\3"+
-		"\2\2\2be\5\20\t\2ce\5\4\3\2db\3\2\2\2dc\3\2\2\2e\r\3\2\2\2fg\t\2\2\2g"+
-		"\17\3\2\2\2hi\b\t\1\2ij\7\b\2\2jk\5\20\t\2kl\7\t\2\2lz\3\2\2\2mo\7\n\2"+
-		"\2nm\3\2\2\2no\3\2\2\2op\3\2\2\2pz\5\26\f\2qs\7\n\2\2rq\3\2\2\2rs\3\2"+
-		"\2\2st\3\2\2\2tz\7\61\2\2uv\5\22\n\2vw\5\20\t\4wz\3\2\2\2xz\5\24\13\2"+
-		"yh\3\2\2\2yn\3\2\2\2yr\3\2\2\2yu\3\2\2\2yx\3\2\2\2z\u0081\3\2\2\2{|\f"+
-		"\5\2\2|}\5\22\n\2}~\5\20\t\5~\u0080\3\2\2\2\177{\3\2\2\2\u0080\u0083\3"+
-		"\2\2\2\u0081\177\3\2\2\2\u0081\u0082\3\2\2\2\u0082\21\3\2\2\2\u0083\u0081"+
-		"\3\2\2\2\u0084\u0085\t\3\2\2\u0085\23\3\2\2\2\u0086\u0087\7\3\2\2\u0087"+
-		"\u008d\7\4\2\2\u0088\u008d\7+\2\2\u0089\u008d\7\62\2\2\u008a\u008d\7\63"+
-		"\2\2\u008b\u008d\7*\2\2\u008c\u0086\3\2\2\2\u008c\u0088\3\2\2\2\u008c"+
-		"\u0089\3\2\2\2\u008c\u008a\3\2\2\2\u008c\u008b\3\2\2\2\u008d\25\3\2\2"+
-		"\2\u008e\u008f\t\4\2\2\u008f\27\3\2\2\2\24\32\34%*,\61:AHOV]dnry\u0081"+
-		"\u008c";
+		"\t\13\4\f\t\f\4\r\t\r\4\16\t\16\3\2\3\2\7\2\37\n\2\f\2\16\2\"\13\2\3\2"+
+		"\3\2\3\3\3\3\7\3(\n\3\f\3\16\3+\13\3\3\3\3\3\6\3/\n\3\r\3\16\3\60\3\3"+
+		"\7\3\64\n\3\f\3\16\3\67\13\3\3\3\3\3\3\4\3\4\7\4=\n\4\f\4\16\4@\13\4\3"+
+		"\4\3\4\7\4D\n\4\f\4\16\4G\13\4\3\5\3\5\7\5K\n\5\f\5\16\5N\13\5\3\5\3\5"+
+		"\7\5R\n\5\f\5\16\5U\13\5\3\5\3\5\7\5Y\n\5\f\5\16\5\\\13\5\3\5\3\5\7\5"+
+		"`\n\5\f\5\16\5c\13\5\3\6\3\6\3\7\3\7\5\7i\n\7\3\b\3\b\3\t\3\t\3\t\3\n"+
+		"\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\3\n\7\n|\n\n\f\n\16\n\177\13"+
+		"\n\3\n\3\n\3\n\5\n\u0084\n\n\3\n\3\n\7\n\u0088\n\n\f\n\16\n\u008b\13\n"+
+		"\3\n\3\n\7\n\u008f\n\n\f\n\16\n\u0092\13\n\3\n\3\n\7\n\u0096\n\n\f\n\16"+
+		"\n\u0099\13\n\3\13\3\13\3\f\3\f\5\f\u009f\n\f\3\r\3\r\3\r\3\16\3\16\3"+
+		"\16\2\3\22\17\2\4\6\b\n\f\16\20\22\24\26\30\32\2\5\3\2\6\7\4\2\5\5\13"+
+		")\3\2+/\2\u00b0\2 \3\2\2\2\4%\3\2\2\2\6:\3\2\2\2\bH\3\2\2\2\nd\3\2\2\2"+
+		"\fh\3\2\2\2\16j\3\2\2\2\20l\3\2\2\2\22\u0083\3\2\2\2\24\u009a\3\2\2\2"+
+		"\26\u009e\3\2\2\2\30\u00a0\3\2\2\2\32\u00a3\3\2\2\2\34\37\5\b\5\2\35\37"+
+		"\5\6\4\2\36\34\3\2\2\2\36\35\3\2\2\2\37\"\3\2\2\2 \36\3\2\2\2 !\3\2\2"+
+		"\2!#\3\2\2\2\" \3\2\2\2#$\7\2\2\3$\3\3\2\2\2%)\7\3\2\2&(\7\63\2\2\'&\3"+
+		"\2\2\2(+\3\2\2\2)\'\3\2\2\2)*\3\2\2\2*.\3\2\2\2+)\3\2\2\2,/\5\b\5\2-/"+
+		"\5\6\4\2.,\3\2\2\2.-\3\2\2\2/\60\3\2\2\2\60.\3\2\2\2\60\61\3\2\2\2\61"+
+		"\65\3\2\2\2\62\64\7\63\2\2\63\62\3\2\2\2\64\67\3\2\2\2\65\63\3\2\2\2\65"+
+		"\66\3\2\2\2\668\3\2\2\2\67\65\3\2\2\289\7\4\2\29\5\3\2\2\2:>\5\f\7\2;"+
+		"=\7\63\2\2<;\3\2\2\2=@\3\2\2\2><\3\2\2\2>?\3\2\2\2?A\3\2\2\2@>\3\2\2\2"+
+		"AE\5\16\b\2BD\7\63\2\2CB\3\2\2\2DG\3\2\2\2EC\3\2\2\2EF\3\2\2\2F\7\3\2"+
+		"\2\2GE\3\2\2\2HL\5\n\6\2IK\7\63\2\2JI\3\2\2\2KN\3\2\2\2LJ\3\2\2\2LM\3"+
+		"\2\2\2MO\3\2\2\2NL\3\2\2\2OS\7\5\2\2PR\7\63\2\2QP\3\2\2\2RU\3\2\2\2SQ"+
+		"\3\2\2\2ST\3\2\2\2TV\3\2\2\2US\3\2\2\2VZ\5\f\7\2WY\7\63\2\2XW\3\2\2\2"+
+		"Y\\\3\2\2\2ZX\3\2\2\2Z[\3\2\2\2[]\3\2\2\2\\Z\3\2\2\2]a\5\16\b\2^`\7\63"+
+		"\2\2_^\3\2\2\2`c\3\2\2\2a_\3\2\2\2ab\3\2\2\2b\t\3\2\2\2ca\3\2\2\2de\5"+
+		"\22\n\2e\13\3\2\2\2fi\5\22\n\2gi\5\4\3\2hf\3\2\2\2hg\3\2\2\2i\r\3\2\2"+
+		"\2jk\t\2\2\2k\17\3\2\2\2lm\5\22\n\2mn\7\2\2\3n\21\3\2\2\2op\b\n\1\2pq"+
+		"\7\b\2\2qr\5\22\n\2rs\7\t\2\2s\u0084\3\2\2\2t\u0084\5\30\r\2uv\7\n\2\2"+
+		"v\u0084\7\60\2\2w\u0084\5\32\16\2x\u0084\7\60\2\2y}\5\24\13\2z|\7\63\2"+
+		"\2{z\3\2\2\2|\177\3\2\2\2}{\3\2\2\2}~\3\2\2\2~\u0080\3\2\2\2\177}\3\2"+
+		"\2\2\u0080\u0081\5\22\n\4\u0081\u0084\3\2\2\2\u0082\u0084\5\26\f\2\u0083"+
+		"o\3\2\2\2\u0083t\3\2\2\2\u0083u\3\2\2\2\u0083w\3\2\2\2\u0083x\3\2\2\2"+
+		"\u0083y\3\2\2\2\u0083\u0082\3\2\2\2\u0084\u0097\3\2\2\2\u0085\u0089\f"+
+		"\5\2\2\u0086\u0088\7\63\2\2\u0087\u0086\3\2\2\2\u0088\u008b\3\2\2\2\u0089"+
+		"\u0087\3\2\2\2\u0089\u008a\3\2\2\2\u008a\u008c\3\2\2\2\u008b\u0089\3\2"+
+		"\2\2\u008c\u0090\5\24\13\2\u008d\u008f\7\63\2\2\u008e\u008d\3\2\2\2\u008f"+
+		"\u0092\3\2\2\2\u0090\u008e\3\2\2\2\u0090\u0091\3\2\2\2\u0091\u0093\3\2"+
+		"\2\2\u0092\u0090\3\2\2\2\u0093\u0094\5\22\n\5\u0094\u0096\3\2\2\2\u0095"+
+		"\u0085\3\2\2\2\u0096\u0099\3\2\2\2\u0097\u0095\3\2\2\2\u0097\u0098\3\2"+
+		"\2\2\u0098\23\3\2\2\2\u0099\u0097\3\2\2\2\u009a\u009b\t\3\2\2\u009b\25"+
+		"\3\2\2\2\u009c\u009f\7*\2\2\u009d\u009f\7\62\2\2\u009e\u009c\3\2\2\2\u009e"+
+		"\u009d\3\2\2\2\u009f\27\3\2\2\2\u00a0\u00a1\7\n\2\2\u00a1\u00a2\5\32\16"+
+		"\2\u00a2\31\3\2\2\2\u00a3\u00a4\t\4\2\2\u00a4\33\3\2\2\2\25\36 ).\60\65"+
+		">ELSZah}\u0083\u0089\u0090\u0097\u009e";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

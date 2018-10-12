@@ -53,6 +53,19 @@ public interface nobjectscriptVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitPunc(nobjectscriptParser.PuncContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link nobjectscriptParser#term_only}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitTerm_only(nobjectscriptParser.Term_onlyContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code neg_float}
+	 * labeled alternative in {@link nobjectscriptParser#term}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNeg_float(nobjectscriptParser.Neg_floatContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code atom_term}
 	 * labeled alternative in {@link nobjectscriptParser#term}.
 	 * @param ctx the parse tree
@@ -81,6 +94,13 @@ public interface nobjectscriptVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitBraced_term(nobjectscriptParser.Braced_termContext ctx);
 	/**
+	 * Visit a parse tree produced by the {@code neg_integer_term}
+	 * labeled alternative in {@link nobjectscriptParser#term}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitNeg_integer_term(nobjectscriptParser.Neg_integer_termContext ctx);
+	/**
 	 * Visit a parse tree produced by the {@code float}
 	 * labeled alternative in {@link nobjectscriptParser#term}.
 	 * @param ctx the parse tree
@@ -101,26 +121,12 @@ public interface nobjectscriptVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitOperator(nobjectscriptParser.OperatorContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code empty_braces}
-	 * labeled alternative in {@link nobjectscriptParser#atom}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitEmpty_braces(nobjectscriptParser.Empty_bracesContext ctx);
-	/**
 	 * Visit a parse tree produced by the {@code name}
 	 * labeled alternative in {@link nobjectscriptParser#atom}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
 	T visitName(nobjectscriptParser.NameContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code graphic}
-	 * labeled alternative in {@link nobjectscriptParser#atom}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitGraphic(nobjectscriptParser.GraphicContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code quoted_string}
 	 * labeled alternative in {@link nobjectscriptParser#atom}.
@@ -129,12 +135,11 @@ public interface nobjectscriptVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitQuoted_string(nobjectscriptParser.Quoted_stringContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code semicolon}
-	 * labeled alternative in {@link nobjectscriptParser#atom}.
+	 * Visit a parse tree produced by {@link nobjectscriptParser#neg_integer}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitSemicolon(nobjectscriptParser.SemicolonContext ctx);
+	T visitNeg_integer(nobjectscriptParser.Neg_integerContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link nobjectscriptParser#integer}.
 	 * @param ctx the parse tree

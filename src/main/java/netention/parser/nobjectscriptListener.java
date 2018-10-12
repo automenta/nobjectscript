@@ -78,6 +78,28 @@ public interface nobjectscriptListener extends ParseTreeListener {
 	 */
 	void exitPunc(nobjectscriptParser.PuncContext ctx);
 	/**
+	 * Enter a parse tree produced by {@link nobjectscriptParser#term_only}.
+	 * @param ctx the parse tree
+	 */
+	void enterTerm_only(nobjectscriptParser.Term_onlyContext ctx);
+	/**
+	 * Exit a parse tree produced by {@link nobjectscriptParser#term_only}.
+	 * @param ctx the parse tree
+	 */
+	void exitTerm_only(nobjectscriptParser.Term_onlyContext ctx);
+	/**
+	 * Enter a parse tree produced by the {@code neg_float}
+	 * labeled alternative in {@link nobjectscriptParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void enterNeg_float(nobjectscriptParser.Neg_floatContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code neg_float}
+	 * labeled alternative in {@link nobjectscriptParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void exitNeg_float(nobjectscriptParser.Neg_floatContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code atom_term}
 	 * labeled alternative in {@link nobjectscriptParser#term}.
 	 * @param ctx the parse tree
@@ -126,6 +148,18 @@ public interface nobjectscriptListener extends ParseTreeListener {
 	 */
 	void exitBraced_term(nobjectscriptParser.Braced_termContext ctx);
 	/**
+	 * Enter a parse tree produced by the {@code neg_integer_term}
+	 * labeled alternative in {@link nobjectscriptParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void enterNeg_integer_term(nobjectscriptParser.Neg_integer_termContext ctx);
+	/**
+	 * Exit a parse tree produced by the {@code neg_integer_term}
+	 * labeled alternative in {@link nobjectscriptParser#term}.
+	 * @param ctx the parse tree
+	 */
+	void exitNeg_integer_term(nobjectscriptParser.Neg_integer_termContext ctx);
+	/**
 	 * Enter a parse tree produced by the {@code float}
 	 * labeled alternative in {@link nobjectscriptParser#term}.
 	 * @param ctx the parse tree
@@ -160,18 +194,6 @@ public interface nobjectscriptListener extends ParseTreeListener {
 	 */
 	void exitOperator(nobjectscriptParser.OperatorContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code empty_braces}
-	 * labeled alternative in {@link nobjectscriptParser#atom}.
-	 * @param ctx the parse tree
-	 */
-	void enterEmpty_braces(nobjectscriptParser.Empty_bracesContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code empty_braces}
-	 * labeled alternative in {@link nobjectscriptParser#atom}.
-	 * @param ctx the parse tree
-	 */
-	void exitEmpty_braces(nobjectscriptParser.Empty_bracesContext ctx);
-	/**
 	 * Enter a parse tree produced by the {@code name}
 	 * labeled alternative in {@link nobjectscriptParser#atom}.
 	 * @param ctx the parse tree
@@ -183,18 +205,6 @@ public interface nobjectscriptListener extends ParseTreeListener {
 	 * @param ctx the parse tree
 	 */
 	void exitName(nobjectscriptParser.NameContext ctx);
-	/**
-	 * Enter a parse tree produced by the {@code graphic}
-	 * labeled alternative in {@link nobjectscriptParser#atom}.
-	 * @param ctx the parse tree
-	 */
-	void enterGraphic(nobjectscriptParser.GraphicContext ctx);
-	/**
-	 * Exit a parse tree produced by the {@code graphic}
-	 * labeled alternative in {@link nobjectscriptParser#atom}.
-	 * @param ctx the parse tree
-	 */
-	void exitGraphic(nobjectscriptParser.GraphicContext ctx);
 	/**
 	 * Enter a parse tree produced by the {@code quoted_string}
 	 * labeled alternative in {@link nobjectscriptParser#atom}.
@@ -208,17 +218,15 @@ public interface nobjectscriptListener extends ParseTreeListener {
 	 */
 	void exitQuoted_string(nobjectscriptParser.Quoted_stringContext ctx);
 	/**
-	 * Enter a parse tree produced by the {@code semicolon}
-	 * labeled alternative in {@link nobjectscriptParser#atom}.
+	 * Enter a parse tree produced by {@link nobjectscriptParser#neg_integer}.
 	 * @param ctx the parse tree
 	 */
-	void enterSemicolon(nobjectscriptParser.SemicolonContext ctx);
+	void enterNeg_integer(nobjectscriptParser.Neg_integerContext ctx);
 	/**
-	 * Exit a parse tree produced by the {@code semicolon}
-	 * labeled alternative in {@link nobjectscriptParser#atom}.
+	 * Exit a parse tree produced by {@link nobjectscriptParser#neg_integer}.
 	 * @param ctx the parse tree
 	 */
-	void exitSemicolon(nobjectscriptParser.SemicolonContext ctx);
+	void exitNeg_integer(nobjectscriptParser.Neg_integerContext ctx);
 	/**
 	 * Enter a parse tree produced by {@link nobjectscriptParser#integer}.
 	 * @param ctx the parse tree

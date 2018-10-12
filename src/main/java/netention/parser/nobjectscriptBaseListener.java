@@ -100,6 +100,30 @@ public class nobjectscriptBaseListener implements nobjectscriptListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterTerm_only(nobjectscriptParser.Term_onlyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitTerm_only(nobjectscriptParser.Term_onlyContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void enterNeg_float(nobjectscriptParser.Neg_floatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNeg_float(nobjectscriptParser.Neg_floatContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterAtom_term(nobjectscriptParser.Atom_termContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -148,6 +172,18 @@ public class nobjectscriptBaseListener implements nobjectscriptListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
+	@Override public void enterNeg_integer_term(nobjectscriptParser.Neg_integer_termContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
+	@Override public void exitNeg_integer_term(nobjectscriptParser.Neg_integer_termContext ctx) { }
+	/**
+	 * {@inheritDoc}
+	 *
+	 * <p>The default implementation does nothing.</p>
+	 */
 	@Override public void enterFloat(nobjectscriptParser.FloatContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -184,18 +220,6 @@ public class nobjectscriptBaseListener implements nobjectscriptListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterEmpty_braces(nobjectscriptParser.Empty_bracesContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitEmpty_braces(nobjectscriptParser.Empty_bracesContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
 	@Override public void enterName(nobjectscriptParser.NameContext ctx) { }
 	/**
 	 * {@inheritDoc}
@@ -203,18 +227,6 @@ public class nobjectscriptBaseListener implements nobjectscriptListener {
 	 * <p>The default implementation does nothing.</p>
 	 */
 	@Override public void exitName(nobjectscriptParser.NameContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void enterGraphic(nobjectscriptParser.GraphicContext ctx) { }
-	/**
-	 * {@inheritDoc}
-	 *
-	 * <p>The default implementation does nothing.</p>
-	 */
-	@Override public void exitGraphic(nobjectscriptParser.GraphicContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
@@ -232,13 +244,13 @@ public class nobjectscriptBaseListener implements nobjectscriptListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterSemicolon(nobjectscriptParser.SemicolonContext ctx) { }
+	@Override public void enterNeg_integer(nobjectscriptParser.Neg_integerContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitSemicolon(nobjectscriptParser.SemicolonContext ctx) { }
+	@Override public void exitNeg_integer(nobjectscriptParser.Neg_integerContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
