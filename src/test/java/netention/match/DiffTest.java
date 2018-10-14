@@ -3,8 +3,6 @@ package netention.match;
 import netention.NObject;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 class DiffTest {
 
     @Test

@@ -4,8 +4,8 @@ import netention.Experience;
 import netention.util.FSWatch;
 import org.antlr.v4.runtime.misc.Pair;
 
-import java.io.File;
 import java.io.IOException;
+import java.io.Serializable;
 import java.nio.file.Path;
 import java.nio.file.StandardWatchEventKinds;
 import java.nio.file.WatchEvent;
@@ -24,6 +24,21 @@ public class ExperienceFiles implements Consumer<Pair<Path, WatchEvent.Kind>> {
 
     private static final Logger logger = Logger.getLogger(ExperienceFiles.class.getSimpleName());
 
+    public static class ExperienceFilesConfiguration implements Serializable {
+
+        public UUID id;
+
+        //update interval, etc
+
+        public ExperienceFilesConfiguration() {
+        }
+
+        public static ExperienceFilesConfiguration newDefault() {
+            ExperienceFilesConfiguration e = new ExperienceFilesConfiguration();
+            e.id = UUID.randomUUID();
+            return e;
+        }
+    }
 
     public ExperienceFiles(Experience e, Path path) throws IOException {
         assert(path.toFile().isDirectory());

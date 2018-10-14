@@ -1,13 +1,10 @@
 package netention;
 
 import netention.io.NObjectParser;
-import netention.parser.nobjectscriptLexer;
-import netention.parser.nobjectscriptParser;
 import netention.term.Statement;
 import netention.term.Term;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
-import org.antlr.v4.runtime.CommonTokenStream;
 
 import java.io.IOException;
 import java.nio.file.Path;

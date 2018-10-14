@@ -1,10 +1,5 @@
 package netention;
 
-import netention.match.Diff;
-import netention.match.ValueDiff;
-import netention.term.Atom;
-import netention.term.Num;
-import netention.term.Term;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;

@@ -1,13 +1,9 @@
 package netention.term;
 
-import netention.NObject;
 import netention.io.NObjectParser;
 import netention.match.ValueDiff;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CharStreams;
-
-import java.io.IOException;
-import java.nio.file.Path;
 
 abstract public class Term implements Comparable {
     public static final Term[] empty_term_aray = new Term[0];

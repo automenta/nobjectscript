@@ -1,14 +1,15 @@
 package netention.io;
 
-import netention.parser.nobjectscriptLexer;
-import netention.term.*;
 import netention.NObject;
+import netention.parser.nobjectscriptLexer;
 import netention.parser.nobjectscriptListener;
 import netention.parser.nobjectscriptParser;
+import netention.term.*;
 import org.antlr.v4.runtime.CharStream;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.ParserRuleContext;
-import org.antlr.v4.runtime.tree.*;
+import org.antlr.v4.runtime.tree.ErrorNode;
+import org.antlr.v4.runtime.tree.TerminalNode;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
